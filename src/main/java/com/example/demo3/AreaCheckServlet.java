@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 public class AreaCheckServlet {
@@ -47,16 +49,22 @@ public class AreaCheckServlet {
     }
 
 
-    public void outHtml(HttpServletRequest request, HttpServletResponse response)
+    public Result outHtml(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        long startTime = System.nanoTime();
         if(validateY() && validateX()) {
             inputValid = true;
         }
-        request.setAttribute("x", x);
-        request.setAttribute("y", y);
-        request.setAttribute("r", r);
-
-        request.getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
+//        request.setAttribute("x", x);
+//        request.setAttribute("y", y);
+//        request.setAttribute("r", r);
+//
+//        request.getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+        Calendar calendar = Calendar.getInstance();
+        String currTime = dateFormat.format(calendar.getTime());
+        String execTime = String.valueOf(System.nanoTime() - startTime);
+        return new Result(x, y, r, currTime, execTime, out);
     }
 
     }

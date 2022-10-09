@@ -9,10 +9,12 @@ import javax.servlet.annotation.*;
 public class ControllerServlet extends HttpServlet {
     private String message;
     private static final String DEFAULT_NAME = "World";
+    ResultList resultList = new ResultList();
 
     public void init() {
         message = "Hello World!";
     }
+
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
@@ -26,14 +28,12 @@ public class ControllerServlet extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        AreaCheckServlet areaCheckServlet = new AreaCheckServlet(x, y, r, response);
-        areaCheckServlet.outHtml(request, response);
 
-//        if (areaCheckServlet.validateX() && areaCheckServlet.validateY()) {
-//            out.println(x);
-//            out.println(y);
-//            out.println(r);
-//        }
+        AreaCheckServlet areaCheckServlet = new AreaCheckServlet(x, y, r, response);
+        resultList.addResult(areaCheckServlet.outHtml(request, response));
+
+        request.getSession().setAttribute("resultList", resultList);
+        request.getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
 
         out.close();
     }
