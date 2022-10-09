@@ -1,0 +1,109 @@
+* {
+    font-family: serif;
+    color: #ffe8e8;
+    /*color: ;*/
+    /*background-color: #FF66FF;*/
+    background-color: #1f1f1f;
+    /*background-image: url("BackgroundCode.jpg");*/
+}
+
+button:hover {
+    cursor: pointer;
+    color: green;
+    background-color: #faf7f7;
+}
+
+.button:hover{
+
+}
+
+.name {
+    font-family: serif;
+    margin: 0px 550px;
+    /*color: green;*/
+    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
+    /*line-height: 40px;*/
+}
+
+#utka {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+
+}
+
+.values {
+    /*text-align: center;*/
+    margin: 50px 600px;
+    height: 50px;
+    width: 50px;
+}
+
+.table {
+    margin: 150px 600px;
+    height: 50px;
+    width: 50px;
+    /*background-color: #faf7f7;*/
+}
+
+.chart {
+    margin: 25px 600px;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #515151;
+}
+
+.exmpl {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exmpl img {
+    height: 100%;
+    width: auto;
+}
+
+/*input:invalid {*/
+/*    background-color: #ee4242;*/
+/*}*/
+
+input:valid {
+    /*background-color: #faf7f7;*/
+}
+
+/*:root{*/
+/*    --error-color: #f54c45;*/
+/*}*/
+
+
+/*#x-textinput{*/
+/*    width: 30px;*/
+/*}*/
+
+/*#x-textinput.text-error {*/
+/*    color: var(--error-color);*/
+/*}*/
+
+/*#r-textinput.text-error {*/
+/*    color: var(--error-color);*/
+/*}*/
+
+
+/*.text-error {*/
+/*    !*border: 1px solid --error-color;*!*/
+/*    color: var(--error-color);*/
+/*}*/
+
+/*.box-error {*/
+/*    color: var(--error-color);*/
+/*}*/
+
+/*.text-error::placeholder {*/
+/*    color: var(--error-color);*/
+/*}*/
+
