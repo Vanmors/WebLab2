@@ -5,7 +5,8 @@
 <html>
 <head>
     <title>Lab2</title>
-    <link rel="stylesheet" href="style.css">
+<%--    <link rel="stylesheet" href="style.css">--%>
+    <link rel="stylesheet" href="testStyle.css">
 </head>
 <%-- Determine the specified name (or use default) --%>
 <%
@@ -15,16 +16,19 @@
     }
 %>
 <body bgcolor='white'>
-
 <div class="name">
     Мориков Иван Дмитриевич P32121(P3117) №212113
     <img id="utka" src="vt_logo.png" width="100" height="100">
 </div>
+<div class="chart exmpl">
+<%--        <img src="grafic.png">--%>
+    <canvas style="background-color: #dddddd " width="500" height="500" id="canvas"></canvas>
+
+</div>
+
 <p></p>
 
-<div class="chart exmpl">
-    <img src="grafic.png">
-</div>
+
 
 <div class="values">
     <form action="${pageContext.request.contextPath}/hello-servlet" method="post">
@@ -133,6 +137,10 @@
     <b>Hello, <%= name %>
     </b>
     <script type="text/javascript" src="ButtonX.js"></script>
-
+    <script type="text/javascript" src="ChartDrow.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<%--<script type="text/javascript">--%>
+<%--$(document).ready(drawGraph())--%>
+<%--</script>--%>
 </body>
 </html>

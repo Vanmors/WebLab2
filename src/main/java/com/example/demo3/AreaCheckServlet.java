@@ -55,16 +55,18 @@ public class AreaCheckServlet {
         if(validateY() && validateX()) {
             inputValid = true;
         }
+            checkX();
 //        request.setAttribute("x", x);
 //        request.setAttribute("y", y);
 //        request.setAttribute("r", r);
 //
 //        request.getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
-        Calendar calendar = Calendar.getInstance();
-        String currTime = dateFormat.format(calendar.getTime());
-        String execTime = String.valueOf(System.nanoTime() - startTime);
-        return new Result(x, y, r, currTime, execTime, out);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+            Calendar calendar = Calendar.getInstance();
+            String currTime = dateFormat.format(calendar.getTime());
+            String execTime = String.valueOf((double) (System.nanoTime() - startTime) / (double) 1000000);
+            return new Result(x, y, r, currTime, execTime, out);
+
     }
 
     }
