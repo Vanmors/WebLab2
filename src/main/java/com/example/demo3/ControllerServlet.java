@@ -30,12 +30,17 @@ public class ControllerServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         AreaCheckServlet areaCheckServlet = new AreaCheckServlet(x, y, r, response);
-        resultList.addResult(areaCheckServlet.outHtml(request, response));
+        if (areaCheckServlet.outHtml(request, response) != null) {
+            resultList.addResult(areaCheckServlet.outHtml(request, response));
+            request.getSession().setAttribute("resultList", resultList);
+            request.getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
 
-        request.getSession().setAttribute("resultList", resultList);
-        request.getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
+            out.close();
+        }
 
-        out.close();
+            //throw new IllegalArgumentException("Illegal Arguments!");
+            //request.getRequestDispatcher("/index.jsp").forward(request, response);
+
     }
 
     public void destroy() {

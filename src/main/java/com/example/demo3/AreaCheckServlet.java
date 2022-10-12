@@ -61,12 +61,14 @@ public class AreaCheckServlet {
 //        request.setAttribute("r", r);
 //
 //        request.getServletContext().getRequestDispatcher("/Result.jsp").forward(request, response);
+        if (inputValid) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
             Calendar calendar = Calendar.getInstance();
             String currTime = dateFormat.format(calendar.getTime());
             String execTime = String.valueOf((double) (System.nanoTime() - startTime) / (double) 1000000);
             return new Result(x, y, r, currTime, execTime, out);
-
+        }
+        return null;
     }
 
     }
