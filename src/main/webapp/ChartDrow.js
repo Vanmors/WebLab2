@@ -53,8 +53,44 @@ ctx.lineTo(55, 260);
 ctx.fillText("-R", 15, 250)
 ctx.stroke(); // Делаем контур
 
-// function compareData(){
+function compareData(e){
     const r = $('input[name="r"]:checked').val();
+    if (r === undefined){
+        alert("Введите R")
+    }
+    else{
+        const point = getCursorPosition(e);
+        const plot_canvas = document.getElementById("canvas");
+        const plot_context = plot_canvas.getContext("2d");
+        plot_context.beginPath();
+        plot_context.rect(point.x, point.y, 5, 5);
+        ctx.stroke(); // Делаем контур
+        //console.log(point)
+    }
+}
 
-    console.log(typeof r)
-// }
+function getCursorPosition(e) {
+    let x;
+    let y;
+    const plot_canvas = document.getElementById("canvas");
+    if (e.pageX !== undefined && e.pageY !== undefined) {
+        x = e.pageX + 300;
+        y = e.pageY + 300;
+        console.log(x);
+        console.log(y);
+    } else {
+        x = e.clientX + document.body.scrollLeft +
+            document.documentElement.scrollLeft;
+        y = e.clientY + document.body.scrollTop +
+            document.documentElement.scrollTop;
+    }
+    return {
+        x: x - plot_canvas.getBoundingClientRect().left,
+        y: y - plot_canvas.getBoundingClientRect().top
+
+    }
+}
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    document.getElementById("canvas").addEventListener('click', compareData);
+});

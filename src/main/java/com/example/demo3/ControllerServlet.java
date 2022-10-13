@@ -24,7 +24,8 @@ public class ControllerServlet extends HttpServlet {
     public void generateResponse(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Double x = Double.valueOf(request.getParameter("x"));
         Double y = Double.valueOf(request.getParameter("y"));
-        Integer r = Integer.valueOf(request.getParameter("r"));
+        Double r = Double.valueOf(request.getParameter("r"));
+
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -38,9 +39,11 @@ public class ControllerServlet extends HttpServlet {
             out.close();
         }
 
-            //throw new IllegalArgumentException("Illegal Arguments!");
-            //request.getRequestDispatcher("/index.jsp").forward(request, response);
-
+        //throw new IllegalArgumentException("Illegal Arguments!");
+        //request.getRequestDispatcher("/index.jsp").forward(request, response);
+//        else {
+//            request.getRequestDispatcher("/index.jsp").forward(request, response);
+//        }
     }
 
     public void destroy() {

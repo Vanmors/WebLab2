@@ -3,12 +3,12 @@ package com.example.demo3;
 public class Result {
     private double x;
     private double y;
-    private int r;
+    private double r;
     private String currTime;
     private String execTime;
     private boolean hitResult;
 
-    public Result(double x, double y, int r, String currTime, String execTime, boolean hitResult) {
+    public Result(double x, double y, double r, String currTime, String execTime, boolean hitResult) {
         this.x = x;
         this.y = y;
         this.r = r;
